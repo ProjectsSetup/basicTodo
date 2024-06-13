@@ -24,7 +24,7 @@ app.post("/todo", function(req, res) {
 
 //get endpoint to get todos after authenticating user
 app.get("/todos", function(req, res) {
-
+    
 })
 
 //endpoint to complete a todo after validating inputs given using zod libaray
