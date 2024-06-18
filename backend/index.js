@@ -5,9 +5,11 @@ const express = require("express");
 const jsonwebtoken = require("jsonwebtoken");
 const { createTodo, updateTodo } = require("./types");
 const { todo } = require("./db");
+const cors = require("cors");
 
-
+const port = 3000; //port to be used for listening to connections
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 
@@ -30,7 +32,7 @@ app.post("/todo", async function(req, res) {
             description: createPayload.description,
             completed: false
         })
-        res,json({
+        res.json({
             msg: "Todo created"
         })
     } catch (error) {
@@ -78,3 +80,6 @@ app.put("/completed", async function(req, res) {
 app.delete("/todo", function(req, res) {
     
 })
+
+
+app.listen(port);
